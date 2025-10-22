@@ -253,44 +253,5 @@
   </div>
   <p class="footer-bottom">©2025. fathanstore</p>
 </footer>
-
 </body>
-
-<script>
-  $(window).on("scroll", function() {
-    if ($(this).scrollTop() > 50) {
-      $(".navbar").css({
-        "background": "rgba(0, 0, 0, 0.6)",
-        "backdrop-filter": "blur(10px)"
-      });
-    } else {
-      $(".navbar").css({
-        "background": "transparent",
-        "backdrop-filter": "none"
-      });
-    }
-  });
-  </script>
-
-<script>
-  $(document).ready(function() {
-    // Smooth scroll ketika link navbar diklik
-    $('.nav-links a').on('click', function(e) {
-      // Cegah link default
-      e.preventDefault();
-
-      // Ambil target id (misal #produk)
-      const target = $(this).attr('href');
-
-      // Scroll animasi ke elemen tersebut
-      $('html, body').animate({
-        scrollTop: $(target).offset().top - 70 // -70 agar tidak ketutup navbar
-      }, 800);
-    });
-  });
-
-  
-</script>
-
-
 </html>
