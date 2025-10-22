@@ -394,19 +394,24 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 2;
+  overflow: hidden; /* penting: sembunyikan card yang keluar area */
 }
 
 /* Wrapper semua card */
 .produk-container {
   display: flex;
   gap: 20px;
-  overflow-x: auto;
+  overflow: hidden; /* sembunyikan overflow di desktop */
   scroll-behavior: smooth;
   padding: 10px 40px;
-  scrollbar-width: none; /* Firefox */
 }
-.produk-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+
+/* Desktop - hanya 3 card terlihat */
+@media (min-width: 1025px) {
+  .produk-container {
+    width: calc(280px * 3 + 20px * 2 + 80px); /* 3 card + gap + padding */
+    margin: 0 auto;
+  }
 }
 
 /* Card produk */
@@ -487,6 +492,7 @@ body {
   }
 
   /* Hilangkan tombol di mobile, gunakan swipe */
+
   .slide-btn {
     display: none;
   }
@@ -531,6 +537,22 @@ body {
 
   .produk-section h2 {
     font-size: 1.4rem;
+  }
+}
+
+/* Mobile - bebas swipe */
+@media (max-width: 768px) {
+  .produk-container {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .produk-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .slide-btn {
+    display: none; /* tombol disembunyikan di mobile */
   }
 }
 
